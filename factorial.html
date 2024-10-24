@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio factorial - Emmanuel S.</title>
+</head>
+
+<body>
+
+    <h1>Ejercicio Factorial en JavaScript</h1>
+    <div id="resultado"></div>
+
+    <script>
+        function calcularFactorial(num) {
+            if (num < 0) return 'Nulo --->>>> El factorial no puede ser con números negativos.';
+            let factorial = 1;
+            for (let i = 1; i <= num; i++) {
+                factorial *= i;
+            }
+            return factorial;
+        }
+
+        function ingresarNumero() {
+            let input;
+            while (true) {
+                input = prompt("Por favor, ingresa un número:");
+                if (input === null) return;
+
+                const numero = Number(input);
+                if (!isNaN(numero) && Number.isInteger(numero)) {
+                    const resultado = calcularFactorial(numero);
+                    console.log(`El factorial de ${numero} es: ${resultado}`);
+                    document.getElementById('resultado').innerText = `El factorial de ${numero} es: ${resultado}`;
+                    break;
+                } else {
+                    alert("El dato que acabas de ingresar es invalido. Por favor, ingresa un número entero.");
+                }
+            }
+        }
+
+        ingresarNumero();
+    </script>
+
+</body>
+
+</html>
